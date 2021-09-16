@@ -1,0 +1,38 @@
+# Bert v1 - v3
+training:
+  seed: 100
+  epochs: 30
+  batch_size: 2
+  exp_lr: False
+
+  save_highest_accuracy: False
+  save_lowest_loss: False
+  
+model:
+  learning_rate: 5e-6
+  dropout: 0
+  freezelayers: False
+  weight_decay: 0
+
+  modelname: model/                         # path to model
+
+  path_v2school: model_v2school/  
+  path_v2profession: model_v2profession/
+  path_v2skills: model_v2skills/
+
+data: 
+  max_length: 512                            # number of tokens for each resume
+  test_size: 0.25                                      # cross validation
+  zusagen: csv/con_zusagen.csv                      # path to .csv file with acceptances
+  absagen: csv/con_absagen.csv                      # path to .csv file with rejections
+
+# Bert v4
+textsimilarity:
+  path: "test/bertv4_qp/"
+  model: "uncasedmulti/"
+
+converter:
+  pdf_path: "test3/"
+
+converter_txt2csv:
+  csv_path: "output.csv"
