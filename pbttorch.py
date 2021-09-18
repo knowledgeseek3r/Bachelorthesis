@@ -113,16 +113,6 @@ config = {
 "batch_size": tune.choice([2, 4, 8, 16])
 }
 
-optimizer = AdamW(model.parameters(),
-                    lr=5e-6,
-                    eps=1e-8,
-                    weight_decay=config.get("wd", 0.1))
-
-scheduler = get_linear_schedule_with_warmup(optimizer,
-                                            num_warmup_steps=0, # Default value
-                                            num_training_steps=1)
-
-
 scheduler = PopulationBasedTraining(
     time_attr="training_iteration",
     perturbation_interval=5,
