@@ -108,9 +108,10 @@ def train_cifar(model, config, checkpoint_dir=None, data_dir=None):
         print("Finished Training")
 
 # Define Parameters and ranges for testing and evaluation of them
+# No more parameters were added because while testing population based training (with only varying learning rate and batch size) it came out that this method take already to much time.
 config = {
 "lr": tune.loguniform(1e-4, 1e-1),
-"batch_size": tune.choice([2, 4, 8, 16])
+"batch_size": tune.choice([2, 4, 8])
 }
 
 scheduler = PopulationBasedTraining(
